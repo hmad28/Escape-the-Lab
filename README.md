@@ -12,3 +12,5 @@ Game survival horror asimetris untuk Roblox di PC dan mobile. Para Scientist men
 **Status** · Pre-production. Milestone pertama adalah vertical slice satu zona untuk menguji latihan, capture, rescue, mutasi, dan evakuasi dengan 1–4 pemain.
 
 [Baca Game Design Document dan Technical Design Document v0.2](ESCAPE_THE_LAB_GDD.md)
+
+[Buka katalog aset produksi](ASSET_CATALOG.md)
