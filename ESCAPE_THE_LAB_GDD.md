@@ -7,16 +7,16 @@
 | Metadata | Keterangan |
 |---|---|
 | Judul | Escape the Lab (ETL) |
-| Versi dokumen | v0.2 — Spesifikasi pre-production |
-| Tanggal | 27 November 2026 |
+| Versi dokumen | v0.3 — Spesifikasi pre-production |
+| Tanggal | 28 November 2026 |
 | Konsep awal | Fathan Dzaki (berdasarkan GDD yang dibagikan) |
 | Inisiatif kolaborasi | Komunitas Hammad Studio (usulan) |
 | Target platform | Roblox, PC & Mobile |
 | Genre | Asymmetrical Survival, Infection, Horror-lite |
-| Target pemain MVP | 1–7 pemain per server. Latihan 1–2, ronde pendek 3, ronde utama 4–7. Target balance utama 1 Subject Zero vs 6 Scientists. |
+| Target pemain MVP | Ronde 5–6 pemain, 1 Subject Zero melawan 4–5 Scientists. Latihan opsional untuk 1–2 peserta selama menunggu. |
 | Status | Pre-production; belum diimplementasikan / diuji |
 
-**Cara membaca dokumen.** **[BASE]** berasal dari konsep awal. **[PROPOSAL]** menandai pengembangan tim. §9.0, §9.2, dan profil map §8.6 menetapkan baseline implementasi v0.2. Angka prototipe tetap hipotesis playtest. Blueprint ini merupakan rancangan top-down tekstual.
+**Cara membaca dokumen.** **[BASE]** menandai inti dari penjelasan Fathan di WhatsApp 27 November 2026. **[PROPOSAL]** menandai detail tim. Roster 5–6 diambil dari contoh Fathan. Jumlah kartu, format latihan dan angka timer adalah baseline prototipe.
 
 ## Daftar isi
 
@@ -46,7 +46,7 @@
 
 ### 1.1 High concept [BASE]
 
-Sekelompok ilmuwan terjebak di fasilitas laboratorium setelah sebuah eksperimen gagal. Mereka harus menemukan tiga keycard, membuka zona yang sesuai, mengaktifkan tiga genset, dan melarikan diri melalui pintu evakuasi di tengah map. Satu pemain berperan sebagai Subject Zero yang berusaha menangkap dan menginfeksi mereka semua.
+Scientists terjebak di Facility 07. Satu pemain jadi anomali bernama Subject Zero. Pemain lain mencari kunci yang langsung membuka gate evakuasi. Scientist yang tertangkap bisa diselamatkan sebelum timer habis. Jika gagal diselamatkan, ia menjadi Mini-Mutant dan bergabung ke tim anomali.
 
 ### 1.2 Unique selling proposition
 
@@ -68,8 +68,8 @@ Dengan begitu, ETL menggabungkan pengejaran, kerja sama, manajemen risiko, dan p
 | Pillar | Implementasi |
 |---|---|
 | **Nobody sits out early** | Scientist yang tertangkap dapat diselamatkan atau melanjutkan sebagai mutant. Pemain yang sudah kabur menjadi spectator hingga match selesai. |
-| **Teamwork under pressure** | Pemain harus membagi tugas antara mencari kartu, menyalakan genset, dan menyelamatkan teman. |
-| **Escalating threat** | Subject Zero semakin cepat setelah genset aktif; jumlah mutant juga dapat meningkat. |
+| **Teamwork under pressure** | Pemain harus membagi tugas antara mencari kunci dan menyelamatkan teman. |
+| **Escalating threat** | Jumlah mutant bertambah bila korban tidak terselamatkan. |
 | **Meaningful counterplay** | Ventilasi, rute alternatif, suara ancaman, dan batas kemampuan mutant memberi kesempatan melawan secara taktis. |
 | **Readable chaos** | Warna zona, simbol, HUD, dan audio membantu pemain memahami situasi walau sedang dikejar. |
 
@@ -77,7 +77,7 @@ Target: pemain Roblox yang menyukai survival multiplayer, horror-lite, dan berma
 
 ## 3. Lore dan atmosfer
 
-**[PROPOSAL]** Fasilitas bawah tanah dengan nama sementara **Facility 07** mengembangkan proyek regenerasi biologis. Eksperimen Subject Zero lepas kendali, sistem listrik utama mati, dan protokol karantina mengunci akses keluar. Scientists yang tersisa harus memulihkan suplai energi sebelum fasilitas memasuki lockdown total.
+**[PROPOSAL]** Fasilitas bawah tanah dengan nama sementara **Facility 07** mengembangkan proyek regenerasi biologis. Eksperimen Subject Zero lepas kendali, sistem listrik utama mati, dan protokol karantina mengunci akses keluar. Scientists yang tersisa harus mengumpulkan kunci darurat untuk membuka jalur keluar.
 
 Identitas Subject Zero dan detail eksperimen dapat disampaikan melalui catatan penelitian, layar rusak, dan pesan interkom. Lore tidak boleh memperlambat gameplay. Gunakan cerita lingkungan daripada cutscene panjang.
 
@@ -92,62 +92,33 @@ Nama-nama fasilitas ini bersifat sementara.
 
 ### 4.1 Scientist [BASE]
 
-```mermaid
-flowchart TD
-    A[Spawn sebagai Scientist] --> B[Cari tiga keycard warna]
-    B --> C[Buka zona sesuai warna]
-    C --> D[Aktifkan tiga genset]
-    D --> E[Pintu evakuasi Central Hub terbuka]
-    E --> F[Kabur]
-    B --> G[Tertangkap]
-    C --> G
-    D --> G
-    E --> G
-    G --> H[Infection Tube: 45 detik]
-    H -->|Rescue berhasil| B
-    H -->|Waktu habis| I[Mini-Mutant]
-    I --> J[Bantu Subject Zero]
-```
-
-Diagram menyederhanakan alur: Scientist dapat mengerjakan ketiga zona secara paralel dan kembali ke objective yang masih tersisa setelah rescue; progres tim tidak direset.
+Cari kunci → gate terbuka setelah seluruh kunci terkumpul → kabur. Jika tertangkap, tunggu rescue di Infection Tube. Bila waktunya habis, bergabung ke tim anomali sebagai Mini-Mutant. Pemain yang diselamatkan kembali mencari kunci atau menuju gate yang sudah terbuka.
 
 ### 4.2 Subject Zero [BASE]
 
-Patroli zona → cari Scientist → kejar dan tangkap → masukkan ke Infection Tube → putuskan apakah akan mengganggu rescue atau menjaga objective → gunakan System Lockdown → manfaatkan mutant yang terinfeksi untuk memberi tekanan.
+Patroli, kejar dan tangkap Scientist. Setelah korban masuk tabung, pilih menjaga rute rescue, memotong jalur pencarian, atau menuju gate. Mini-Mutant yang muncul membantu memberi tekanan.
 
 ### 4.3 Ketegangan per fase [PROPOSAL]
 
-| Fase | Pengalaman yang diinginkan |
-|---|---|
-| Awal | Eksplorasi, mencari kartu, mengenali rute, ancaman mulai terdengar. |
-| Tengah | Genset aktif, rescue terjadi, tim mulai berpencar atau bekerja sama. |
-| Akhir | Subject Zero paling kuat, mutant mungkin bertambah, perlombaan menuju evakuasi. |
-
-Contoh: dua Scientist memperbaiki genset biru, satu mengambil keycard hijau, dan satu membebaskan temannya. Subject Zero harus memilih antara menjaga objective atau mengejar pemain yang mencoba rescue. Tidak ada peran yang diwajibkan secara permanen dalam MVP.
+Awal ronde memberi waktu mencari kunci dan mengenali rute. Setelah capture pertama, Scientist memilih lanjut mencari atau kembali menolong. Saat gate terbuka, dua pendekatan memberi pilihan untuk kabur.
 
 ## 5. Faksi, karakter, dan balancing
 
 ### 5.1 Scientists
 
-- **[BASE]** Objektif: keycard, buka zona, aktifkan genset, evakuasi, rescue teman.
+- **[BASE]** Objektif: cari kunci, evakuasi, rescue teman.
 - **[PROPOSAL]** Semua Scientist menggunakan kemampuan dasar yang sama pada MVP agar balancing tidak terlalu kompleks.
 - Dapat sprint, menggunakan ventilasi, berinteraksi dengan objective dan membantu rescue.
 - Tidak mempunyai senjata mematikan. Bertahan dengan pergerakan, koordinasi dan penggunaan layout.
 
 ### 5.2 Subject Zero
 
-**[BASE] Adrenaline Rush (pasif):** kecepatan lari bertambah 5% setiap kali satu genset aktif.
-
-**[PROPOSAL]** Gunakan bonus aditif terhadap kecepatan dasar: `baseSpeed × (1 + 0.05 × activeGenerators)`. Maksimum +15% setelah tiga genset. Perhitungan aditif merupakan interpretasi desain, belum ditetapkan di sumber awal.
-
-**[BASE] System Lockdown (aktif):** mengunci satu pintu zona warna dari jarak jauh selama 10 detik, cooldown 45 detik.
-
-**[PROPOSAL]** Pilih warna melalui tombol atau radial menu. Pintu yang terkena skill berkedip dan menampilkan countdown. Skill hanya menargetkan pintu zona yang sudah terbuka; ventilasi dan pintu evakuasi tidak dapat dikunci. Skill gagal tanpa memakai cooldown jika target tidak valid. Cooldown dimulai saat efek berhasil diaktifkan.
+Satu pemain menjadi anomali. Aksi inti adalah capture langsung dalam jangkauan yang divalidasi server. Kecepatan dasar tetap sepanjang ronde. Ancaman bertambah melalui Mini-Mutant dan posisi.
 
 ### 5.3 Mini-Mutant
 
-- **[BASE]** Scientist yang gagal diselamatkan beralih ke tim killer, dengan pergerakan lebih lambat daripada Subject Zero.
-- **[PROPOSAL]** Tidak mempunyai System Lockdown, tidak bisa menggunakan ventilasi, dan tidak memperoleh Adrenaline Rush.
+- **[BASE]** Scientist yang gagal diselamatkan beralih ke tim anomali. **[PROPOSAL]** Mini-Mutant bergerak lebih lambat daripada Subject Zero.
+- **[PROPOSAL]** Mini-Mutant tidak memakai ventilasi.
 - Untuk mengurangi snowball, mutant tidak bisa menangkap langsung. Serangannya memberi efek slow singkat dan menandai target secara lokal sehingga Subject Zero bisa mendekat. Hanya Subject Zero yang dapat melakukan final capture pada MVP.
 - Efek slow tidak menumpuk, dan target yang sama menerima kekebalan singkat dari slow ulang.
 - Mutant mengikuti hasil faksi Killer sesuai §9.2.
@@ -162,57 +133,32 @@ Contoh: dua Scientist memperbaiki genset biru, satu mengambil keycard hijau, dan
 | Scientist sprint speed | 22 studs/s | Dibatasi stamina |
 | Stamina | 100 | Sprint menghabiskan 20/s; pulih 15/s setelah 1,5 s |
 | Subject Zero base speed | 19 studs/s | Tanpa sprint tambahan |
-| Speed setelah 1/2/3 genset | 19,95 / 20,90 / 21,85 | Formula bonus aditif 5% [BASE: bonus] |
 | Mini-Mutant speed | 17,5 studs/s | Selalu di bawah Subject Zero |
 | Subject Zero capture range | 5 studs | Jarak dan line-of-sight diverifikasi server |
 | Capture cooldown | 3 s | Mulai setelah capture berhasil dicatat |
 | Mutant attack range | 4 studs | Perlu dekat |
 | Mutant slow | 20% selama 2 s | Kekebalan slow ulang 5 s setelah efek berakhir |
 | Mutant attack cooldown | 6 s | Tidak stack |
-| Infection timer | 45 s | [BASE] |
-| Rescue hold | 3 s | [BASE] |
+| Infection timer | 120 s ronde, 45 s latihan co-op | Nilai awal prototipe |
+| Rescue hold | 3 s | Nilai awal prototipe |
 | Rescue protection | 3 s | Tidak dapat ditangkap ulang; tidak mengerjakan objective |
-| Lockdown duration / cooldown | 10 s / 45 s | [BASE] |
 | Match duration | 10 menit | Termasuk fase evakuasi, dapat berubah saat playtest |
 
 Semua nilai diletakkan dalam konfigurasi, bukan hardcoded pada banyak script. Speed Roblox di atas adalah target prototipe, bukan hasil simulasi fisik atau playtest.
 
 ## 6. Objective dan interaksi
 
-### 6.1 Keycard system
+### 6.1 Kunci evakuasi
 
-**[BASE]** Tiga keycard (merah, biru, hijau) membuka pintu zona dengan warna yang sama.
+**[BASE]** Scientist mencari kunci untuk membuka jalan keluar. **[PROPOSAL]** Kunci berupa keycard. Latihan dan M1 memakai satu keycard Red. M2 memakai tiga keycard, satu per warna. Server memilih satu dari tiga kandidat publik per warna aktif. Semua zona aktif dapat dimasuki sejak awal.
 
-**[PROPOSAL]** Agar kartu tidak hilang saat pemain terinfeksi atau disconnect:
+Server mencatat pickup sekali dan memberi progres ke tim. Kartu tetap tercatat setelah capture, mutasi atau disconnect.
 
-- Setiap warna memiliki minimal 3 titik spawn yang telah divalidasi dapat dicapai tanpa kartu.
-- Server memilih satu titik untuk tiap warna setiap match. Titik spawn tidak boleh bertumpuk.
-- Setelah diambil, kartu menjadi akses bersama tim. HUD memperbarui status kartu untuk semua Scientist. Tidak perlu menyerahkan item antar pemain.
-- Pintu dapat dibuka oleh Scientist mana pun setelah kartu diperoleh; pintu tetap terbuka hingga terkena Lockdown sementara.
-- Tidak ada keycard yang hanya bisa diperoleh setelah membuka zona yang bergantung pada kartu tersebut.
+### 6.2 Gate evakuasi
 
-### 6.2 Generator system
-
-**[BASE]** Satu genset di ujung masing-masing zona. Pada map penuh, tiga genset wajib aktif untuk evakuasi.
-
-**[PROPOSAL]** Pada MVP, gunakan interaksi perbaikan sederhana:
-
-1. Dekati genset, tahan tombol interaksi. Target awal: 12 detik total.
-2. Progres bertahan jika pemain meninggalkan genset, sehingga teman dapat melanjutkan.
-3. Maksimum dua pemain membantu satu genset; pemain kedua menambah 50% laju perbaikan, bukan 100%.
-4. Server menghentikan kontribusi saat pemain menjauh, tertangkap, terinfeksi, atau kehilangan koneksi.
-5. Setelah mencapai 100%, genset aktif permanen untuk match tersebut.
-6. Semua pemain mendapat umpan balik audio/visual. Subject Zero mendapat bonus speed.
-
-Skill check berbasis timing, sabotage, dan blackout dinamis masuk post-MVP agar objective utama stabil terlebih dahulu.
-
-### 6.3 Evacuation gate
-
-- **[BASE]** Pintu evakuasi berada di Central Hub dan tersedia setelah ketiga genset aktif pada map penuh.
-- **[PROPOSAL]** Gerbang terbuka otomatis setelah animasi 5 detik. Setiap Scientist dapat kabur secara individual dengan melintasi escape trigger yang divalidasi server.
-- Pemain yang kabur tidak dapat kembali membantu tim, tetapi dapat menonton Scientist yang masih aktif atau menunggu hasil di area aman.
-- Gate memiliki satu tujuan akhir dengan beberapa pendekatan dan cover. Server membuka gate setelah semua genset pada profil aktif selesai (satu atau tiga sesuai §9.0).
-- Escape pertama memastikan hasil faksi Scientist. Pemain lain bisa melanjutkan sesuai aturan akhir ronde §9.2.
+- Kartu terakhir memulai animasi gate 5 detik secara otomatis. Escape trigger baru aktif saat animasi selesai.
+- Gate di Central Hub punya dua pendekatan ber-cover. Scientist aktif bisa escape jika melewati trigger sebelum deadline. Hasil individu dan faksi mengikuti §9.2.
+- Pada latihan co-op, pickup memicu simulasi capture. Gate mulai membuka setelah rescue latihan berhasil.
 
 ## 7. Infection dan rescue system
 
@@ -221,15 +167,15 @@ Skill check berbasis timing, sabotage, dan blackout dinamis masuk post-MVP agar 
 Saat Subject Zero berhasil menangkap Scientist, korban langsung dimasukkan ke Infection Tube. Untuk MVP, gunakan pemindahan yang dilakukan server menuju tabung bebas terdekat, dengan transisi visual singkat. Tidak ada sistem gendong/HP/downed tambahan pada MVP. Ini menyederhanakan networking dan menghindari menunggu animasi panjang.
 
 - Satu tabung menampung satu pemain.
-- Pilih tabung valid yang kosong dengan jarak lurus terkecil dari posisi korban, lalu `TubeId` terkecil jika seri. Semua tabung aktif harus bisa dicapai dari hub sebelum kartu pertama diambil dan saat Lockdown. Jika tidak ada tabung valid, tolak capture, pertahankan state korban dan cooldown, lalu log error.
+- Pilih tabung valid yang kosong dengan jarak lurus terkecil dari posisi korban, lalu `TubeId` terkecil jika seri. Semua tabung aktif harus bisa dicapai dari hub sebelum kartu pertama diambil. Jika tidak ada tabung valid, tolak capture, pertahankan state korban dan cooldown, lalu log error.
 - Server mencatat penempatan korban, status `Captured`, deadline infeksi dan cooldown capture sebagai satu perubahan gameplay. Transisi visual mengikuti perubahan itu.
 - Pemain yang tertangkap melihat timer dan dapat menggunakan ping rescue terbatas.
 - Scientist aktif mendapatkan indikator lokasi tabung dan sisa waktu korban.
 - Timer tetap berjalan jika Subject Zero pindah zona.
 
-### 7.2 Rescue [BASE]
+### 7.2 Rescue
 
-Scientist lain mendekati tabung, menahan E selama 3 detik (atau tombol touch), dan melepaskan korban sebelum 45 detik berakhir.
+**[BASE]** Scientist lain bisa membebaskan korban sebelum batas waktu. **[PROPOSAL]** Tahan E atau tombol touch selama 3 detik. Timer awal 120 detik untuk ronde dan 45 detik untuk latihan co-op. Deadline sesi tetap berlaku jika sesi selesai lebih dulu.
 
 **[PROPOSAL]** Rescue batal saat penolong menjauh, tertangkap, atau melepas input. Progres rescue direset saat batal. Jika dua penolong berinteraksi, hanya satu yang dapat menyelesaikan rescue; keduanya tidak mempercepat durasi. Setelah bebas, korban mendapat proteksi capture 3 detik dan tidak bisa mengerjakan objective saat proteksi berlangsung.
 
@@ -242,8 +188,8 @@ Aturan tie: rescue sah hanya apabila penyelesaian hold di server terjadi **sebel
 ### 7.4 Anti-camping
 
 - Tabung tersebar di lokasi dengan minimal dua pendekatan dan cover.
-- Jangan membuat tabung berada tepat di sebelah genset atau gerbang evakuasi.
-- P0 menguji layout dan countdown tetap 45 detik. Jika pemain masih konsisten gagal mencapai tabung karena camping, eksperimen P1 dapat memperlambat countdown menjadi 50% setelah 8 detik Subject Zero berada dalam radius 12 studs tanpa Scientist aktif lain di radius itu, dengan tambahan maksimum 15 detik per episode capture. Tampilkan efek aktif dan kembali ke laju normal saat kondisi berakhir.
+- Jangan membuat tabung berada tepat di sebelah titik kunci atau gerbang evakuasi.
+- P0 menguji layout dan countdown tetap per mode. Jika pemain masih konsisten gagal mencapai tabung karena camping, eksperimen P1 dapat memperlambat countdown menjadi 50% setelah 8 detik Subject Zero berada dalam radius 12 studs tanpa Scientist aktif lain di radius itu, dengan tambahan maksimum 15 detik per episode capture. Tampilkan efek aktif dan kembali ke laju normal saat kondisi berakhir.
 
 ### 7.5 Player state diagram
 
@@ -269,53 +215,22 @@ Disconnect adalah transisi terpisah dari setiap state aktif, dijelaskan pada bag
 
 ## 8. Map design blueprint
 
-### 8.1 Layout [BASE]
+### 8.1 Layout
 
-Konsep Hub & Spoke: satu Central Hub, tiga cabang zona warna, genset di ujung zona, dan jalur ventilasi yang menghubungkan zona sebagai rute alternatif Scientist. Referensi visual awal memperlihatkan ruangan melingkar gelap dengan struktur sentral dan pencahayaan hijau industrial (atribusi pada gambar: D&M Production). Gunakan sebagai inspirasi atmosfer, bukan asset yang diasumsikan bebas digunakan.
+Facility 07 memakai Hub & Spoke sebagai proposal map. Hub menghubungkan Red, Blue, Green dan gate. Cabang yang aktif bisa dimasuki sejak awal. Vent pada map penuh memberi jalur rotasi Scientist.
 
-### 8.2 Top-down schematic [PROPOSAL]
+### 8.2 Top-down schematic
 
-```text
-                          NORTH / RED
-               +---------------------------+
-               | Research    Security      |
-               |          [G-R]            |
-               | V-RB   Loop R       V-RG  |
-               +-----------[D-R]-----------+
-                            ||
-                      Research Corridor [T1/T2]
-                            ||
-        (vent RB) . . .     ||     . . . (vent RG)
-                 .    +---------------+    .
-                 .    |   CENTRAL HUB |    .
-                 .    |  cover  EXIT  |    .
-                 .    | alcoves [T3]  |    .
-                 .    +--+---------+--+    .
-                 .     [T4]       [T5/T6]  .
-                 .       /         \       .
-                 .     D-B         D-G     .
-                 .     /             \     .
-   +-------------+----+               +----+-------------+
-   | V-BR    Loop B   |               | Loop G     V-GR  |
-   |      [G-B]       |               |      [G-G]      |
-   | Cryo / Control   |               | Bio / Containment|
-   |          V-BG    |               | V-GB             |
-   +-------------+----+               +----+-------------+
-                 .                         .
-                 . . . . vent BG . . . . . .
-         SOUTHWEST / BLUE              SOUTHEAST / GREEN
-```
-
-Legenda: `G` generator, `D` pintu warna, `T` Infection Tube, `V` akses ventilasi. Garis titik-titik menunjukkan ventilasi. Hub dan lorong sebelum pintu warna membentuk jalur publik. Beri tiap tabung alcove dan cover tersendiri. Tempatkan T3 di tepi hub, terpisah dari alcove spawn, jalur utama gate, dan trigger evakuasi.
+Lihat [Map Blueprint](MAP_BLUEPRINT.md) untuk diagram dan posisi. Red berada di utara, Blue barat daya, Green tenggara. Masing-masing memiliki chase loop dan kandidat kunci. Tabung berada di alcove publik, terpisah dari titik kunci, spawn dan gate.
 
 ### 8.3 Ruangan dan landmark
 
 | Area | Ruangan | Tujuan gameplay | Identitas visual |
 |---|---|---|---|
 | Central Hub | Evacuation, security desk, reception alcoves | Orientasi, spawn Scientists, akses antarzona, evakuasi | Ruang melingkar, pilar, lampu putih/hijau, emergency shutter |
-| Red | Research, security, power room | Objective merah, chase loop | Merah, amber, simbol segitiga, rak dan meja riset |
-| Blue | Cryo storage, control, power room | Objective biru, cover rapat | Biru, simbol persegi, mesin pendingin, kaca buram |
-| Green | Containment, specimen room, power room | Objective hijau, chase loop | Hijau, simbol lingkaran, tabung spesimen, pipa |
+| Red | Research, security | Objective merah, chase loop | Merah, amber, simbol segitiga, rak dan meja riset |
+| Blue | Cryo storage, control | Objective biru, cover rapat | Biru, simbol persegi, mesin pendingin, kaca buram |
+| Green | Containment, specimen room | Objective hijau, chase loop | Hijau, simbol lingkaran, tabung spesimen, pipa |
 | Vent | RB, RG, BG | Rute kabur dan rotasi Scientist | Logam, lampu rendah, suara ventilasi |
 
 ### 8.4 Blockout dimensions
@@ -326,21 +241,21 @@ Legenda: `G` generator, `D` pintu warna, `T` Infection Tube, `V` akses ventilasi
 | Central Hub | Diameter sekitar 60 studs |
 | Lorong utama | Lebar 12–16 studs |
 | Lorong samping | Lebar 8–12 studs |
-| Ruang genset | Sekitar 24 × 24 studs |
+| Ruang landmark | Sekitar 24 × 24 studs |
 | Tinggi ruang | 12–18 studs |
 | Vent | Entrance berinteraksi, terhubung dengan jalur transit khusus |
-| Waktu hub ke genset | Target 8–15 detik lari normal tanpa hambatan; ukur pada blockout |
-| Waktu rotasi vent antarzona | Target 6–9 detik setelah kedua zona terkait terbuka |
+| Waktu hub ke kandidat kunci terjauh | Target 8–15 detik lari normal tanpa hambatan; ukur pada blockout |
+| Waktu rotasi vent antarzona | Target 6–9 detik pada profil tiga zona |
 
 Gunakan `studs` sebagai unit pengukuran Roblox. Target waktu dan dimensi adalah hipotesis, bukan ukuran map referensi.
 
 ### 8.5 Routing rules dan spawn
 
 - Setiap zona mempunyai setidaknya satu loop pengejaran. Setiap tabung publik punya dua pendekatan layak dari percabangan publik dengan cover.
-- Vent baru dapat digunakan jika kedua zona yang dihubungkan sudah terbuka secara permanen oleh keycard. Lockdown sementara tidak menonaktifkan vent tersebut.
+- Vent hanya untuk Scientist aktif pada profil penuh. Sambungkan jalur publik antarzona dan letakkan exit di luar gate serta escape trigger.
 - MVP vent menggunakan interaksi masuk 1 detik, transit 4–6 detik, lalu server menempatkan pemain di exit. Jangan gunakan teleport seketika untuk menghindari chase yang terlalu mudah. Cooldown vent per pemain 8 detik setelah keluar.
-- Sediakan 6 spawn Scientist tersebar di alcove hub yang dapat dicapai tanpa kartu; spawn Subject Zero di security annex terpisah yang punya jalur ke hub. Berikan head start Scientist 12 detik sebelum killer dapat bergerak.
-- Keycard kandidat berada di hub atau koridor publik sebelum pintu zona. Awal match tidak boleh memiliki objective yang mustahil diakses.
+- Sediakan 5 spawn Scientist tersebar di alcove hub yang dapat dicapai tanpa kartu; spawn Subject Zero di security annex terpisah yang punya jalur ke hub. Berikan head start Scientist 12 detik sebelum killer dapat bergerak.
+- Kandidat keycard tersebar di area aktif yang bisa dimasuki dari hub sejak awal. Awal match tidak boleh memiliki objective yang mustahil diakses.
 - Letakkan cover di sekitar gate agar killer tidak bisa mengawasi semua pendekatan sekaligus. Uji camp di gate dengan 1–3 mutant aktif. Jika terlalu kuat, desain ulang gate menjadi area escape lebih lebar atau dua entrance menuju satu tujuan evakuasi.
 
 ### 8.6 Map object contract
@@ -349,45 +264,42 @@ Map builder memberi nama/atribut/tag sesuai kontrak yang disepakati programmer. 
 
 | Tag | Attributes wajib | Satu zona | Tiga zona |
 |---|---|---:|---:|
-| `ScientistSpawn` | `SpawnId` | 3 | 6 |
+| `ScientistSpawn` | `SpawnId` | 5 | 5 |
 | `KillerSpawn` | `SpawnId` | 1 | 1 |
 | `KeycardSpawn` | `SpawnId`, `Color` | 3 | 9 |
-| `ZoneDoor` | `ZoneId` | 1 | 3 |
-| `Generator` | `ZoneId`, `ObjectiveId` | 1 | 3 |
-| `InfectionTube` | `TubeId`, `AreaId` | 3 | 6 |
+| `InfectionTube` | `TubeId`, `AreaId` | 5 | 5 |
 | `VentEntrance` | `VentId`, `ZoneId`, `LinkedVentId` | 0 | 6 |
 | `EvacuationGate` | `GateId` | 1 | 1 |
 | `EscapeTrigger` | `GateId` | 1 | 1 |
 
-Latihan, ronde pendek, dan M1 memakai profil satu zona (Red), dengan spawn Scientist `S1`–`S3` dan tabung `T1`–`T3`. M1 menguji maksimal empat pemain. Ronde utama M2 memakai tiga zona, `S1`–`S6` dan `T1`–`T6`. Kedua profil memakai spawn Subject Zero dan pasangan gate/trigger yang sama. Tutup cabang di luar profil secara fisik. Daftarkan ke lookup server hanya ID profil aktif dan objek yang warna atau `ZoneId`-nya aktif. Vent hanya aktif pada profil tiga zona. `AreaId` tabung menunjuk landmark publik yang tampil di HUD, misalnya `ResearchCorridor`.
+Latihan dan M1 memakai profil Red. M2 memakai tiga zona. Keduanya punya S1–S5, T1–T5, spawn Subject Zero dan pasangan gate/trigger. Pada profil Red, cabang Blue dan Green ditutup secara fisik dan T4/T5 berada di alcove hub. Pada profil penuh, T4/T5 berada pada pendekatan publik Blue/Green. Vent hanya terdaftar pada profil penuh. `AreaId` menamai landmark publik di HUD.
 
-Sebelum spawn, validator memeriksa jumlah objek dan ID unik untuk setiap tag. `GateId` yang sama harus menghubungkan gate dan trigger, dan `ZoneId` yang sama menghubungkan pintu dan genset. Periksa juga tiga kandidat kartu per warna dan pasangan vent dua arah bila dipakai. Jika gagal, kembali ke lobby dan log objek yang bermasalah. QA blockout memastikan kartu, tabung dan jalur rescue dapat dicapai saat seluruh pintu zona tertutup.
+Sebelum spawn, validator memeriksa jumlah objek, ID unik per tag, tiga kandidat kartu per warna aktif, `GateId` yang menghubungkan gate dan trigger, serta link vent dua arah. Jika gagal, kembali ke lobby dan log objek bermasalah. QA memastikan kartu, tabung dan rute rescue dapat dicapai dari hub sebelum gate terbuka.
 
 ## 9. Match flow dan edge cases
 
 ### 9.0 Mode dan transisi pemain
 
-| Pemain siap | Mode | Tujuan dan batas prototipe |
-|---|---|---|
-| 1 | Latihan solo | Satu zona. Ambil keycard, buka pintu, nyalakan genset dan kabur. Panduan kontekstual mengikuti langkah berikutnya. |
-| 2 | Latihan co-op | Satu zona. Dua Scientist mulai bersama. Saat pintu pertama terbuka, server satu kali memasukkan pemain yang membukanya ke tabung publik. Rekannya mengikuti penanda dan mencoba rescue. Genset baru dapat dikerjakan setelah rescue. Keduanya harus melewati gate untuk menyelesaikan latihan. Jika timer infeksi habis, tampilkan penjelasan mutasi dan akhiri latihan agar bisa diulang. |
-| 3 | Ronde pendek | 1 Subject Zero vs 2 Scientist, satu zona, batas awal 5 menit. Capture, rescue, mutasi dan escape memakai aturan kompetitif. |
-| 4–7 | Ronde utama | 1 Subject Zero vs 3–6 Scientist, tiga zona, batas awal 10 menit. M1 menguji 4 pemain memakai profil satu zona sebelum map penuh tersedia. |
+| Pemain siap | Alur |
+|---|---|
+| 1–4 | Lobby menunggu ronde. Latihan opsional tersedia untuk satu atau dua peserta di Red. |
+| 5–6 | Ronde utama, satu Subject Zero melawan 4–5 Scientists. Profil Red pada M1, tiga zona pada M2. Batas awal 10 menit. |
 
-- Sejak M1, ronde kompetitif memakai capture langsung, Adrenaline Rush +5% per genset, dan Mini-Mutant dengan slow. System Lockdown dan vent hanya aktif pada profil tiga zona, mulai M2. Latihan memakai kontrol Scientist dan interaksi yang sama.
-- Lobby berada di luar arena. Pemain siap dapat menekan `Mulai Latihan` saat arena kosong dan ada satu atau dua pemain siap. Jika dua pemain siap, minta persetujuan pemain kedua sebelum keduanya dipindahkan ke arena. Jika belum disetujui, pemohon bisa mulai solo. Pemain yang datang saat sesi berjalan bisa ikut latihan berikutnya. Latihan berjalan maksimal 120 detik dan bisa ditinggalkan kapan saja. Jika salah satu peserta keluar dari co-op, akhiri sesi dengan opsi mulai ulang.
-- Pemain yang baru masuk lobby otomatis siap mengikuti ronde. Status siap bisa diubah selama menunggu, intermission, atau berlatih. Masuk latihan mempertahankan status siap. Saat tiga pemain siap, tampilkan status ronde siap dan hentikan start latihan baru. Peserta latihan yang siap boleh memilih `Ikut Ronde`, yang mengakhiri keikutsertaannya di latihan sambil tetap siap, atau menyelesaikan latihan aktif. Jika co-op berakhir karena rekannya pindah ke ronde, beri tahu pemain yang tersisa. Mulai intermission setelah arena kosong dan pemain siap masih memenuhi minimum.
-- Jika pemain siap turun di bawah tiga selama intermission, kembali ke `Waiting`. Di akhir intermission, ambil daftar pemain siap dan kunci peserta serta mode saat `Preparing`. Jika peserta terputus saat persiapan, batalkan persiapan, bersihkan arena dan kembali ke `Waiting` untuk memilih ulang roster dan mode. Pemain yang masuk setelah roster dikunci menunggu ronde berikutnya. Perubahan jumlah pemain saat `Active` mengikuti §9.4 dan tidak mengubah profil atau jumlah genset.
-- Satu server memiliki satu sesi arena aktif sekaligus. Latihan dan ronde memakai reset map, interaksi, dan HUD yang sama. Latihan punya ID sesi sendiri, hanya menerima aksi dari pesertanya, dan tidak mengubah statistik kompetitif, bobot role, atau reward.
+- **Solo** · Ambil kartu dan kabur.
+- **Co-op** · Dua pemain setuju memulai latihan. Setelah kartu diambil, server memasukkan pengambil ke tabung satu kali. Rekannya punya 45 detik untuk rescue. Jika berhasil, gate membuka dan keduanya perlu escape. Jika rescue gagal atau salah satu keluar, akhiri latihan dan tawarkan ulang.
+- Saat arena kosong dan pemain siap kurang dari lima, satu pemain siap boleh mulai solo atau mengajak satu pemain siap lain. Undangan co-op hanya berlaku untuk pasangan itu. Server menerima satu sesi arena, dan membatalkan undangan lain ketika sesi dimulai atau ambang ronde tercapai. Latihan maksimal 120 detik.
+- Pemain baru otomatis siap. Saat lima pemain siap, hentikan start latihan baru. Peserta aktif boleh menyelesaikan latihan atau memilih `Ikut Ronde` untuk keluar lebih cepat. Status siap tetap berlaku kecuali dibatalkan pemain. Intermission mulai setelah arena kosong jika minimal lima masih siap.
+- Jika jumlah siap turun di bawah lima saat intermission, kembali ke `Waiting`. Kunci roster 5–6 saat masuk `Preparing`. Jika peserta keluar saat persiapan, reset dan pilih roster ulang. Join setelah roster terkunci menunggu ronde berikutnya. Disconnect di `Active` mengikuti §9.4.
+- Server menampung maksimal enam pemain dan satu sesi arena. Latihan punya ID sendiri tanpa perubahan statistik, bobot role atau reward kompetitif.
 
 ### 9.1 Round lifecycle [PROPOSAL]
 
 | State | Durasi awal | Perilaku |
 |---|---:|---|
-| `Waiting` | Dinamis | Latihan tersedia di bawah 3 pemain siap. Pada 3 atau lebih, tunggu arena kosong lalu mulai intermission. |
+| `Waiting` | Dinamis | Di bawah lima pemain siap, latihan tersedia saat arena kosong. Pada 5–6, mulai intermission setelah arena kosong. |
 | `Intermission` | 20 s | Pemain siap, server memeriksa map. |
 | `Preparing` | 5 s | Reset round, assign roles, spawn, tutorial singkat. |
-| `Active` | 300 s / 600 s | Ronde pendek / utama. Waktu berjalan sejak awal gameplay termasuk head start. |
+| `Active` | 600 s | Waktu berjalan sejak awal gameplay termasuk head start. |
 | `Results` | 12 s | Tampilkan hasil individu dan faksi, XP jika fitur tersedia. |
 | `Cleanup` | Sesingkat mungkin | Bersihkan task, connection, state, map, lalu ke Waiting. |
 
@@ -401,7 +313,7 @@ Pada ronde kompetitif, server mencatat escape yang sah sebelum deadline. Begitu 
 2. Jika tidak ada Scientist aktif atau tertangkap, selesaikan kemenangan Scientist bila sudah ada escape. Tanpa escape, mutasi Scientist terakhir memberi kemenangan Killer, sementara disconnect Scientist terakhir membatalkan ronde. Disconnect Scientist sebelumnya tidak menghalangi kemenangan dari mutasi terakhir. Mutant yang keluar tetap tercatat pernah bermutasi.
 3. Jika deadline tiba dengan Scientist aktif atau tertangkap, Scientist menang bila ada escape. Jika tidak, Killer menang. Aksi yang diterima tepat pada deadline atau setelahnya tidak mengubah hasil.
 
-Scientist mendapat kemenangan individu lewat escape. Mini-Mutant mewarisi hasil Killer. Scientist yang belum kabur kalah secara individu meskipun faksinya menang. Ronde berlanjut setelah escape pertama selama masih ada Scientist aktif atau tertangkap dan Subject Zero masih bermain. Results menampilkan outcome, escape, mutasi, rescue, dan genset aktif. Ronde batal tidak memberi reward kompetitif.
+Scientist mendapat kemenangan individu lewat escape. Mini-Mutant mewarisi hasil Killer. Scientist yang belum kabur kalah secara individu meskipun faksinya menang. Ronde berlanjut setelah escape pertama selama masih ada Scientist aktif atau tertangkap dan Subject Zero masih bermain. Results menampilkan outcome, escape, mutasi, rescue, dan kunci terkumpul. Ronde batal tidak memberi reward kompetitif.
 
 ### 9.3 Role selection
 
@@ -411,7 +323,7 @@ Pilih killer di server menggunakan bobot yang meningkat untuk pemain yang belum 
 
 | Kasus | Penanganan |
 |---|---|
-| Scientist keluar | Lepaskan kontribusi genset, tube, dan state miliknya; kartu yang sudah diambil tetap milik tim. |
+| Scientist keluar | Bebaskan slot tabung dan interaksinya; kartu yang sudah diambil tetap milik tim. |
 | Captured player disconnect | Kosongkan tabung; tidak melahirkan mutant bot. |
 | Mutant keluar | Bersihkan effect, slot, dan koneksi. |
 | Subject Zero keluar | Akhiri ronde sesuai §9.2 dan tampilkan alasan hasilnya. |
@@ -419,7 +331,7 @@ Pilih killer di server menggunakan bobot yang meningkat untuk pemain yang belum 
 | Join ketika match aktif | Lobby/spectator tanpa ikut round yang sedang berjalan. |
 | Reset character / jatuh keluar map | Role tidak berubah. Server pulihkan ke titik valid sesuai role; cegah reset menjadi cara keluar dari tabung. |
 | Rescue vs mutation pada waktu sama | Server memutuskan dari deadline; mutation pada waktu yang sama. |
-| Lockdown vs gate open | Hanya pintu zona bisa dikunci; gate tetap berfungsi. |
+| Kartu terakhir tercatat hampir bersamaan dengan event lain | Server jadwalkan pembukaan gate satu kali. |
 | Dua pemain mengambil kartu sama | Server menandai acquired secara atomik, reward sekali. |
 | Timer habis saat escape berlangsung | Hanya escape yang tercatat server sebelum deadline dianggap sah. |
 
@@ -446,25 +358,23 @@ Launch → Lobby → Intermission → Role Reveal → In-game HUD → Results �
 
 ```text
 +-----------------------------------------------------+
-| ETL       GENERATORS  1/3              TIME  06:42   |
-|          R: ON  B: REPAIR  G: LOCKED                 |
+| ETL       KEYCARDS    1/3              TIME  06:42   |
+|          R: FOUND  B: MISSING  G: MISSING                 |
 |                                                     |
 |     RESCUE: Green Sector — Scientist 04: 00:27       |
 |                                                     |
-|                 [ E ] REPAIR GENERATOR              |
+|                 [ E ] HOLD TO RESCUE              |
 |                      █████░░░  62%                  |
 |                                                     |
 | Stamina ███████░░░                      [SPRINT]    |
 +-----------------------------------------------------+
 ```
 
-Status warna selalu disertai huruf, ikon atau teks. UI tidak boleh mengandalkan merah/hijau saja. Peringatan rescue memakai lokasi zona, ikon tabung, dan countdown. Objective tracker menampilkan tahap keycard → pintu → genset → escape.
+Status warna selalu disertai huruf, ikon atau teks. UI tidak boleh mengandalkan merah/hijau saja. Peringatan rescue memakai lokasi zona, ikon tabung, dan countdown. Objective tracker menampilkan tahap keycard → gate terbuka → escape.
 
 ### 10.4 Killer HUD
 
 - Timer, jumlah Scientist aktif / captured / escaped / mutant.
-- Adrenaline Rush multiplier (contoh `+10%`).
-- System Lockdown: tiga pilihan warna, cooldown, kondisi pintu.
 - Crosshair/indikator capture jika target berada dalam jangkauan secara perkiraan; keputusan akhir tetap di server.
 - Tidak ada wallhack lokasi semua Scientist permanen.
 
@@ -480,7 +390,6 @@ Captured HUD menampilkan `INFECTION IN PROGRESS`, countdown besar, dan aksi ping
 | Sprint | Shift | Tombol sprint toggle |
 | Interact / rescue | E / tahan E | Contextual hold button |
 | Capture / mutant attack | Klik kiri | Tombol attack |
-| Lockdown | Q → pilih zona | Skill button → pilih zona |
 | Ping rescue | R (captured) | Tombol ping |
 | Settings | Escape / menu Roblox + UI custom | Ikon settings |
 
@@ -507,7 +416,7 @@ Gunakan warna sebagai aksen landmark, bukan membanjiri seluruh ruangan. Lampu ov
 
 | Prioritas | Asset |
 |---|---|
-| P0 | Modular wall/floor/ceiling, 3 pintu zona, gerbang evakuasi, 3 genset, 3 keycard, 6 tabung, entrance vent, cover props |
+| P0 | Kit modular, gate dan trigger, tiga varian keycard, lima tabung per profil, entrance vent, cover props |
 | P0 | Subject Zero rig dan Mini-Mutant rig; idle, walk, run, attack, capture/mutation feedback |
 | P0 | Scientist avatar standar dengan animasi interaksi |
 | P1 | Emergency light, signage, desk, pipe, rack, monitor, cryo props, specimen props |
@@ -519,7 +428,7 @@ Gunakan asset original atau asset dengan lisensi yang mengizinkan penggunaan di 
 ### 11.3 Audio plan
 
 - Ambience dasar: mesin, ventilasi, humming listrik.
-- Audio landmark: genset aktif, pintu membuka, alarm Lockdown, escape gate.
+- Audio landmark: keycard diambil, tabung terkunci/terbuka, dan escape gate.
 - Proximity heartbeat untuk Scientist (target P1): intensitas meningkat saat Subject Zero dekat; hindari informasi jarak terlalu presisi.
 - Mutasi: alarm dan suara transformasi singkat, tanpa gore.
 - Audio UI: pickup, interaksi berhasil/gagal, timer rescue.
@@ -536,7 +445,7 @@ Gunakan asset original atau asset dengan lisensi yang mengizinkan penggunaan di 
 | Selesaikan round yang valid | 20 |
 | Escape sebagai Scientist | 50 |
 | Rescue berhasil | 20 |
-| Kontribusi minimal 25% pada genset yang selesai | 15 |
+| Mengambil satu keycard evakuasi sah | 15 |
 | Capture valid oleh Subject Zero | 10 |
 | Assist mutant yang berujung capture dalam 5 detik | 10 |
 | Menang sebagai faksi killer | 40 |
@@ -608,7 +517,6 @@ EscapeTheLab/
 │       ├── RoleService.lua
 │       ├── MapService.lua
 │       ├── ObjectiveService.lua
-│       ├── DoorService.lua
 │       ├── CombatService.lua
 │       ├── InfectionService.lua
 │       ├── VentService.lua
@@ -650,8 +558,7 @@ Ini struktur logis Roblox Explorer, bukan project Rojo yang siap dijalankan. Jik
 | `MatchService` | Reservasi arena, roster, mode, session ID, deadline, hasil dan cleanup |
 | `RoleService` | Assign role, state transition, spawn, permission |
 | `MapService` | Load, validate tags, lookup objects, random spawn |
-| `ObjectiveService` | Keycard ownership, generator contribution, gate eligibility |
-| `DoorService` | Open/lock/unlock zone, cooldown System Lockdown |
+| `ObjectiveService` | Keycard milik tim, pembukaan gate dan escape |
 | `CombatService` | Capture attempt, target validation, mutant slow effect |
 | `InfectionService` | Tube reservation, countdown, rescue, mutation, anti-camping |
 | `VentService` | Vent routing, transit, cooldown, valid exit |
@@ -671,7 +578,7 @@ export type ZoneId = "Red" | "Blue" | "Green"
 export type Role = "Scientist" | "SubjectZero" | "MiniMutant"
 export type PlayerStatus = "Lobby" | "Active" | "Captured" | "Escaped" | "Disconnected"
 export type MatchPhase = "Waiting" | "Intermission" | "Preparing" | "Active" | "Results" | "Cleanup"
-export type SessionMode = "SoloPractice" | "CoopPractice" | "ShortRound" | "MainRound"
+export type SessionMode = "SoloPractice" | "CoopPractice" | "MainRound"
 
 export type PlayerRoundState = {
     userId: number,
@@ -687,10 +594,6 @@ export type PlayerRoundState = {
 
 export type ZoneState = {
     keycardAcquired: boolean,
-    unlocked: boolean,
-    lockedUntil: number?,
-    generatorProgress: number,
-    generatorActive: boolean,
 }
 
 export type RoundState = {
@@ -701,7 +604,8 @@ export type RoundState = {
     deadline: number?,
     players: {[number]: PlayerRoundState},
     zones: {[ZoneId]: ZoneState?},
-    gateOpen: boolean,
+    gateState: "Closed" | "Opening" | "Open",
+    gateOpensAt: number?,
     escapedCount: number,
     mutatedCount: number,
 }
@@ -719,14 +623,14 @@ export type RoundState = {
 | `MatchDelta` | S → C | `roundId`, `revision`, changed fields yang diizinkan |
 | `PlayEffect` | S → C | `effectType`, safe target/position sesuai role |
 
-Action enum awal mencakup `SetReady`, `StartPractice`, `LeavePractice`, `PickupKeycard`, `OpenZoneDoor`, `BeginRepair`, `EndRepair`, `BeginRescue`, `EndRescue`, `Capture`, `MutantAttack`, `Lockdown`, `EnterVent`, `SetSprint`, `PingRescue`, dan `RequestSnapshot`. `SetReady` dan `SetSprint` memvalidasi boolean `enabled`. `StartPractice` berlaku di lobby, dengan pilihan `Solo` atau `Coop`. Permintaan `Coop` dari kedua pemain siap menyatakan persetujuan bersama selama roster tetap sama. Permintaan tersebut gugur saat roster berubah atau sesi lain mulai. `LeavePractice` dan aksi arena memakai `roundId` sesi aktif dan memerlukan keanggotaan yang sah. Prompt native memakai handler server yang sama dengan aksi custom. Pilih satu jalur pengiriman per interaksi.
+Action enum awal mencakup `SetReady`, `StartPractice`, `LeavePractice`, `PickupKeycard`, `BeginRescue`, `EndRescue`, `Capture`, `MutantAttack`, `EnterVent`, `SetSprint`, `PingRescue`, dan `RequestSnapshot`. `SetReady` dan `SetSprint` memvalidasi boolean `enabled`. `StartPractice` berlaku di lobby, dengan pilihan `Solo` atau `Coop`. Permintaan `Coop` menyertakan ID pasangan. Konfirmasi kedua pemain siap untuk pasangan yang sama diperlukan. `LeavePractice` dan aksi arena memakai `roundId` sesi aktif dan memerlukan keanggotaan yang sah. Prompt native memakai handler server yang sama dengan aksi custom. Pilih satu jalur pengiriman per interaksi.
 
 Rules:
 
 - Server memperoleh identitas actor dari koneksi remote, bukan `userId` kiriman client.
 - Target ID wajib terdaftar pada map/round aktif, dengan panjang string dan tipe data yang dibatasi.
 - Capture/attack: server mencari karakter target, mengecek role, jarak, line-of-sight, cooldown, protection, dan posisi wajar.
-- Hold action: server menyimpan waktu mulai dan memantau eligibility; `EndRepair` / `EndRescue` menghentikan kontribusi, bukan memberikan success. Abaikan klaim client bahwa hold selesai secara instan.
+- Rescue hold memakai waktu mulai yang disimpan server. Server memeriksa kelayakan selama hold. `EndRescue` membatalkan hold. Keberhasilan ditentukan oleh server dan dicatat sebelum deadline infeksi.
 - Event lama dari round sebelumnya ditolak. Snapshot memiliki revision sehingga UI dapat mengabaikan delta usang dan meminta resync jika dibutuhkan.
 - Rate limit per pemain dan jenis aksi; hindari broadcast setiap frame. Jangan replikasi posisi keycard rahasia atau daftar lokasi Scientist ke killer melalui data HUD. Objek Workspace yang direplikasi masih dapat terlihat oleh client yang dimodifikasi; jangan menjanjikan secrecy atau anti-wallhack sempurna.
 
@@ -742,7 +646,7 @@ tryCapture(actor, target, roundId):
   reserve tube, place target, and commit Captured without yielding
   on placement failure: release reservation and reject
   cancel target interactions and reset speed modifiers
-  set infection deadline = server now + 45 seconds
+  set infection deadline = server now + infectionWindow(mode)
   start capture cooldown and apply movement restriction
   replicate scoped changes and effect
 
@@ -766,24 +670,20 @@ Selesaikan perubahan state kritis sebelum operasi yang bisa yield. Semua evaluas
 ```luau
 -- Shared/Config.lua — starter values only
 return table.freeze({
-    MIN_COMPETITIVE_PLAYERS = 3,
-    MIN_MAIN_ROUND_PLAYERS = 4,
-    MAX_PLAYERS = 7,
+    MIN_COMPETITIVE_PLAYERS = 5,
+    MAX_PLAYERS = 6,
     PRACTICE_SECONDS = 120,
-    SHORT_ROUND_SECONDS = 300,
     MAIN_ROUND_SECONDS = 600,
     HEAD_START_SECONDS = 12,
-    GENERATOR_SECONDS = 12,
-    INFECTION_SECONDS = 45,
+    GATE_OPEN_DELAY_SECONDS = 5,
+    INFECTION_SECONDS = 120,
+    PRACTICE_INFECTION_SECONDS = 45,
     RESCUE_SECONDS = 3,
     RESCUE_PROTECTION_SECONDS = 3,
     SCIENTIST_WALK_SPEED = 16,
     SCIENTIST_SPRINT_SPEED = 22,
     KILLER_BASE_SPEED = 19,
-    KILLER_SPEED_PER_GENERATOR = 0.05,
     MUTANT_SPEED = 17.5,
-    LOCKDOWN_SECONDS = 10,
-    LOCKDOWN_COOLDOWN = 45,
     CAPTURE_RANGE = 5,
     CAPTURE_COOLDOWN = 3,
 })
@@ -808,8 +708,8 @@ Simpan hanya progression yang diperlukan. Contoh schema: `schemaVersion`, `xp`, 
 |---|---|
 | Remote spam | Rate limit, schema check, reject invalid intent |
 | Capture dari jauh | Server distance + LOS + target status + cooldown |
-| Instant rescue / repair | Server-owned hold timer dan validasi berkala |
-| Unlock tanpa keycard | Server team ownership check |
+| Instant rescue | Server-owned hold timer dan validasi berkala |
+| Escape sebelum semua keycard | Server team ownership check |
 | Speed / teleport exploit | Server sanity check pergerakan, toleransi latency, pengecualian teleport resmi |
 | Reset untuk bebas dari tabung | Server mengembalikan pemain sesuai state |
 | Reward duplication | Ledger per round, reward ID, idempotency |
@@ -830,31 +730,31 @@ Jangan menghukum pemain hanya dari satu spike posisi yang bisa terjadi karena la
 
 | ID | Skenario | Expected result |
 |---|---|---|
-| QA-01 | 1 / 2 / 3 / 4 pemain siap | Solo, co-op, ronde pendek, dan ronde utama terpilih sesuai §9.0. M1 memuat profil satu zona. |
+| QA-01 | 1–4 lalu 5–6 pemain siap | Latihan hanya selama menunggu. Ronde mulai dari 5 dengan satu anomali. |
 | QA-02 | Start dan reset 10 round | Tepat 1 Subject Zero; tidak ada state/timer lama bocor |
-| QA-03 | Keycard random di 20 seed per profil | Tepat satu kartu per warna aktif. Semua kartu bisa dijangkau tanpa unlock. |
+| QA-03 | Keycard random di 20 seed per profil | Tepat satu kartu per warna aktif. Semua kandidat dapat dijangkau sebelum gate terbuka. |
 | QA-04 | 2 Scientist ambil kartu bersamaan | Hanya satu pickup; akses tim tersedia |
-| QA-05 | Repair terputus, dilanjutkan teman | Progres benar, tidak lompat/duplikat |
-| QA-06 | Selesaikan semua genset pada tiap profil | Satu genset cukup untuk profil satu zona dan tiga genset wajib pada map penuh. Bonus speed +5% per genset kompetitif. Gate membuka setelah 5 detik. |
+| QA-05 | Pengambil keycard disconnect atau bermutasi | Progres kartu tim tetap tercatat. |
+| QA-06 | Kartu terakhir di tiap profil, termasuk pickup bersamaan | Satu kartu Red atau tiga kartu map penuh. Gate membuka sekali setelah 5 detik. |
 | QA-07 | Capture valid / invalid jarak | Valid masuk tube; invalid tidak mengubah state |
 | QA-08 | Rescue hold 3 detik sebelum deadline | Scientist bebas, tube kosong, proteksi 3 detik |
-| QA-09 | Infection habis 45 detik tanpa anti-camp | Role berubah menjadi mutant satu kali |
+| QA-09 | Infeksi 120 detik pada ronde aktif | Role berubah menjadi mutant satu kali. |
 | QA-10 | Rescue diproses sebelum, pada, atau setelah deadline infeksi, termasuk hold yang sudah cukup sebelum tick | Rescue hanya berhasil jika dicatat sebelum deadline. Tepat pada atau sesudahnya, mutation terjadi sekali. |
-| QA-11 | Lockdown pada pintu valid di profil tiga zona | Terkunci 10 detik, cooldown 45 detik, vent tetap tersedia jika syarat aksesnya terpenuhi. Profil satu zona tidak menawarkan aksi Lockdown atau vent. |
+| QA-11 | Vent profil penuh dicoba oleh setiap role | Hanya Scientist aktif bisa masuk. Profil Red tidak menampilkan vent. |
 | QA-12 | Subject Zero keluar sebelum/sesudah escape, Scientist terakhir keluar, mutant keluar, atau Scientist terakhir bermutasi setelah rekan keluar | State bersih. Hasil berturut-turut batal/kemenangan Scientist, batal jika belum ada escape, ronde lanjut jika masih ada Scientist, dan kemenangan Killer jika belum ada escape. |
 | QA-13 | Remote action spam / payload salah | Ditolak tanpa mengganggu pemain lain |
 | QA-14 | Scientist escape saat gate belum terbuka | Tidak dianggap escape |
 | QA-15 | Touch input pada HP | Seluruh objective dan role dapat dimainkan tanpa keyboard |
-| QA-16 | Capture sebelum keycard pertama dan saat Lockdown | Penolong bisa mencapai tabung dari jalur publik. Uji kedua pendekatan dari percabangan. Countdown P0 tetap 45 detik. |
-| QA-17 | Vent menuju zona belum unlock | Ditolak; tidak bypass keycard |
+| QA-16 | Capture sebelum kartu pertama | Penolong punya dua pendekatan publik dari percabangan. |
+| QA-17 | Uji enam mulut vent profil penuh | Link dua arah berakhir di jalur publik di luar gate dan trigger. |
 | QA-18 | Reset saat captured | Tetap captured dengan timer yang benar |
 | QA-19 | Killer slow berulang / beberapa mutant | Slow tidak stack; kekebalan ulang berlaku |
 | QA-20 | Gate camp dengan beberapa mutant | Catat apakah masih ada rute lolos; revisi layout jika buntu |
 | QA-21 | DataStore load gagal (P1) | Data lama tidak tertimpa default |
 | QA-22 | Latency tinggi dan reconnect | UI resync, tidak ada duplicate reward atau role |
 | QA-23 | Solo selesai, co-op rescue berhasil/gagal, atau peserta co-op keluar | Progress latihan sesuai mode. Arena bersih setiap kali sesi berakhir. Statistik, XP dan bobot role kompetitif tetap sama. |
-| QA-24 | Satu pemain mencoba mulai co-op, kemudian pemain ketiga siap saat latihan berjalan dan peserta keluar saat persiapan ronde | Co-op baru mulai saat kedua pemain setuju. Saat pemain ketiga siap, latihan baru tertahan. Latihan aktif bisa selesai atau ditinggalkan. Setelah arena kosong hanya satu ronde bisa mulai. Roster yang kehilangan peserta saat Preparing dipilih ulang. |
-| QA-25 | Roster terkunci di 3 atau 4 pemain, lalu pemain masuk/keluar selama Active | Profil dan jumlah objective tetap. Pemain baru menunggu ronde berikutnya. |
+| QA-24 | Satu pemain mencoba mulai co-op, kemudian pemain kelima siap saat latihan berjalan dan peserta keluar saat persiapan ronde | Co-op baru mulai saat kedua pemain setuju. Saat pemain kelima siap, latihan baru tertahan. Latihan aktif bisa selesai atau ditinggalkan. Setelah arena kosong hanya satu ronde bisa mulai. Roster yang kehilangan peserta saat Preparing dipilih ulang. |
+| QA-25 | Roster terkunci di 5 atau 6 pemain, lalu pemain masuk/keluar selama Active | Profil dan jumlah objective tetap. Pemain baru menunggu ronde berikutnya. |
 | QA-26 | Escape sebelum / pada deadline, disconnect setelah deadline sebelum tick berikutnya, dan deadline infeksi bersamaan dengan deadline ronde | Hanya escape sebelum deadline tercatat. Hasil timeout memakai state terakhir yang sudah dicatat. Satu hasil akhir dan satu cleanup. |
 
 ## 15. Pembagian tim dan workflow
@@ -903,11 +803,11 @@ Tidak ada persentase revenue, komitmen biaya, atau pembagian kepemilikan yang di
 
 ### 16.1 Prioritas scope
 
-**P0 — wajib sebelum closed alpha:** latihan solo/co-op, lobby/intermission, ronde pendek dan utama, role assignment, map blockout, tiga keycard, tiga zone door, tiga genset, escape, capture, tube, rescue, mutation, killer skills, vent, HUD/input PC-mobile, cleanup, security checks, private playtest. Uji layout tabung dan gate untuk camping selama fase ini.
+**P0 — wajib sebelum closed alpha:** latihan solo/co-op, lobby/intermission, ronde 5–6 pemain, role assignment, map tiga zona, keycard langsung membuka gate, capture, rescue, mutasi, vent, HUD PC-mobile, cleanup dan private playtest.
 
 **P1 — setelah loop stabil:** visual/audio polish, heartbeat, polish onboarding, XP/level sederhana, telemetry, balancing pass, accessibility settings tambahan, eksperimen timer anti-camping bila layout P0 belum cukup.
 
-**P2 — post-MVP:** classes (Engineer, Medic, Scout, Researcher), minigame genset, gadget, CCTV, random blackout/gas event, additional mutant types, map tambahan, shop kosmetik, leaderboard, cross-server matchmaking, social features.
+**P2 — post-MVP:** classes (Engineer, Medic, Scout, Researcher), minigame genset opsional, System Lockdown dan eksperimen bonus speed, gadget, CCTV, random blackout/gas event, additional mutant types, map tambahan, shop kosmetik, leaderboard, cross-server matchmaking, social features.
 
 Jangan membuka P2 ketika P0 masih mengalami bug blocker. MVP boleh jelek secara visual, tetapi core match tidak boleh rusak.
 
@@ -918,13 +818,13 @@ Durasi di bawah adalah contoh rencana 4–6 minggu part-time, **bukan janji tang
 | Milestone | Perkiraan | Deliverable / gate |
 |---|---|---|
 | M0: Kickoff | Minggu 1 awal | Review GDD, repo, owner, role, access, task board |
-| M1: Vertical slice | Minggu 1–2 | Profil satu zona. Latihan 1–2 pemain, kompetitif 3–4 pemain, satu keycard/genset/gate, capture/rescue/mutasi, slow Mini-Mutant, Adrenaline Rush, dan cleanup berulang. |
-| M2: Full core loop | Minggu 2–3 | Ronde utama 4–7 pemain memakai tiga zona, System Lockdown dan vent. Profil pendek satu zona tetap berjalan. |
+| M1: Vertical slice | Minggu 1–2 | Profil Red. Latihan 1–2 peserta dan ronde 5–6 pemain memakai satu keycard/gate, capture, rescue, slow, mutasi dan cleanup. |
+| M2: Full core loop | Minggu 2–3 | Ronde 5–6 pemain memakai tiga zona, tiga keycard dan vent. Latihan tetap di Red. |
 | M3: Closed alpha | Minggu 3–4 | Mobile HUD, semua P0 QA, 10 round tanpa blocker |
 | M4: Polish & balance | Minggu 4–5 | Revisi map, art/audio pass, balancing, tutorial, telemetry minimal |
 | M5: Release candidate | Minggu 5–6 atau lebih | Closed beta, performance check, asset/license review, release checklist |
 
-Gate M1 sebelum memperluas map mencakup latihan solo dan co-op yang bisa diselesaikan via PC dan touch, semua cabang capture/rescue/mutasi dan hasil ronde yang sah, serta 10 sesi beruntun tanpa slot, timer, atau progres bocor. Uji ronde pendek dan baseline 4 pemain secara terpisah. Catat apakah setidaknya dua jalur menuju tabung dan gate benar-benar dapat dipakai saat dikejar.
+Gate M1 sebelum memperluas map mencakup latihan solo dan co-op yang bisa diselesaikan via PC dan touch, semua cabang capture/rescue/mutasi dan hasil ronde yang sah, serta 10 sesi beruntun tanpa slot, timer, atau progres bocor. Uji roster lima dan enam pemain secara terpisah. Catat apakah setidaknya dua jalur menuju tabung dan gate benar-benar dapat dipakai saat dikejar.
 
 ### 16.3 Starter backlog untuk GitHub Issues
 
@@ -934,19 +834,19 @@ Gate M1 sebelum memperluas map mencakup latihan solo dan co-op yang bisa diseles
 | ETL-002 | P0 | Config dan match state | Gameplay | Lifecycle berjalan berulang |
 | ETL-003 | P0 | Role selection + spawn | Gameplay | Tepat 1 killer, head start |
 | ETL-004 | P0 | Blockout satu zona + tube | Map | Map contract subset valid |
-| ETL-005 | P0 | Keycard dan zone door | Gameplay | Team access, no bypass |
-| ETL-006 | P0 | Generator service | Gameplay | Hold/interrupt/complete |
+| ETL-005 | P0 | Keycard dan progres tim | Gameplay | Pickup sah, akses tim, jumlah kartu sesuai profil |
+| ETL-006 | P0 | Gate membuka dari kartu terakhir | Gameplay | Gate membuka otomatis sekali setelah 5 detik |
 | ETL-007 | P0 | Capture dan tube assignment | Gameplay | Valid target, tube reserved |
-| ETL-008 | P0 | Rescue dan infection timer | Gameplay | 45s, rescue 3s, race safe |
+| ETL-008 | P0 | Rescue dan infection timer | Gameplay | Ronde 120s, latihan 45s, hold 3s, race safe |
 | ETL-009 | P0 | Mini-Mutant role dan slow | Gameplay | Mutation atomik, no stacking |
 | ETL-010 | P0 | Full map 3 zona | Map | Semua tags, loop, vent positions |
-| ETL-011 | P0 | Killer skills | Gameplay | Bonus speed & Lockdown |
+| ETL-011 | P2 | Evaluasi skill tambahan anomali | Design + Gameplay | Uji setelah loop dasar dan balancing |
 | ETL-012 | P0 | Vent routing | Gameplay + Map | No keycard bypass |
 | ETL-013 | P0 | Gate dan results | Gameplay + UI | Escape, win, timeout |
 | ETL-014 | P0 | Scientist/Killer/Captured HUD | UI | Accurate role-scoped state |
 | ETL-015 | P0 | Mobile input | UI | Semua aksi tanpa keyboard |
 | ETL-016 | P0 | Validation + cleanup | Gameplay + QA | Abuse dan disconnect tests |
-| ETL-017 | P0 | Uji camping tabung dan gate | Designer + Map | Capture sebelum unlock masih bisa di-rescue. Revisi routing bila satu penjaga menutup semua pendekatan. |
+| ETL-017 | P0 | Uji camping tabung dan gate | Designer + Map | Rescue tersedia sebelum kartu pertama. Revisi routing bila satu penjaga menutup semua pendekatan. |
 | ETL-018 | P0 | Closed alpha test | QA | Matrix P0 lulus, log bug |
 | ETL-019 | P1 | Character + environment polish | Art | Siluet, contrast, performance |
 | ETL-020 | P1 | Sound dan accessibility | Client + Art | Audio settings, warning readable |
@@ -963,8 +863,8 @@ Task selesai jika acceptance criteria terpenuhi, diuji dengan minimal dua client
 
 ### 17.1 Rencana pengujian
 
-1. Internal technical test: mulai dari 1 client untuk solo, 2 untuk latihan rescue, 3 untuk ronde pendek, dan 4 untuk baseline M1. Jalankan transisi 1 → 2 → 3 → 4 pemain tanpa restart server. Uji pemain keempat yang siap sebelum roster terkunci dan pemain keempat yang masuk saat ronde pendek sudah aktif. Uji kedua jalur rescue dan kondisi akhir ronde.
-2. Full lobby test: 7 orang, coba strategi berbeda (rush objective, rescue-heavy, killer camping, vent routing).
+1. Internal technical test: jalankan solo, co-op, lalu tambah pemain sampai lima dan enam tanpa restart. Pastikan 3–4 pemain tetap menunggu dan peserta latihan bisa pindah ke ronde. Uji join setelah roster terkunci, rescue dan mutasi.
+2. Full lobby test: 6 orang, coba strategi berbeda (rush objective, rescue-heavy, killer camping, vent routing).
 3. Closed alpha: undang komunitas, target 15–25 tester, beberapa sesi full lobby; catat perangkat dan feedback.
 4. Iterasi: ubah maksimal beberapa parameter balancing utama tiap putaran agar dampaknya bisa dipahami.
 5. Closed beta: tester baru tanpa penjelasan verbal; ukur apakah tutorial, objective tracker dan kontrol cukup jelas.
@@ -977,7 +877,7 @@ Task selesai jika acceptance criteria terpenuhi, diuji dengan minimal dua client
 | Scientist faction win rate | Round normal dengan ≥1 escape / round normal | 40–60%; evaluasi per jumlah pemain |
 | Escape rate per Scientist | Jumlah escape / jumlah Scientist awal pada round normal | 30–60% |
 | Rescue success | Korban diselamatkan / episode capture yang berakhir rescue atau mutation | 35–65% |
-| Median match duration | Median waktu Active ronde kompetitif normal per mode | Ronde pendek ≤ 5 menit. Ronde utama 5–10 menit. |
+| Median match duration | Median waktu Active ronde kompetitif normal per mode | Target awal 5–10 menit. |
 | Penyelesaian latihan | Sesi latihan selesai / sesi latihan dimulai, per mode | Catat selesai, timeout, keluar, pindah ke ronde, dan hasil rescue co-op. Ambil baseline alpha. |
 | First objective clarity | Tester baru memahami objective tanpa bantuan | ≥ 80% pada sesi observasi |
 | Mobile frame rate | FPS pada HP uji selama chase | ≥ 30 FPS sebagai target awal |
@@ -985,7 +885,7 @@ Task selesai jika acceptance criteria terpenuhi, diuji dengan minimal dua client
 
 Target merupakan hipotesis ETL. Laporkan jumlah sampel, disconnect, role, mode, map version, dan distribusi hasil. Pisahkan metrik latihan dari statistik kompetitif. Kelompokkan ronde kompetitif menurut mode dan ukuran roster awal, lalu bandingkan hasil sebelum dan sesudah mutasi pertama. Jangan mengambil kesimpulan balancing dari satu atau dua match.
 
-Telemetry minimum mencatat `practice_started`, `practice_ended`, `round_started`, `keycard_acquired`, `generator_activated`, `player_captured`, `player_rescued`, `player_mutated`, `player_escaped`, `lockdown_used`, `round_ended`, dan `round_cancelled`. Sertakan ID sesi, mode, ukuran roster awal, versi build, waktu berjalan, dan alasan sesi berakhir. Untuk prototipe, log internal cukup. Hindari isi chat dan informasi pribadi yang tidak diperlukan.
+Telemetry minimum mencatat `practice_started`, `practice_ended`, `round_started`, `keycard_acquired`, `gate_opened`, `player_captured`, `player_rescued`, `player_mutated`, `player_escaped`, `round_ended`, dan `round_cancelled`. Sertakan ID sesi, mode, ukuran roster awal, versi build, waktu berjalan, dan alasan sesi berakhir. Untuk prototipe, log internal cukup. Hindari isi chat dan informasi pribadi yang tidak diperlukan.
 
 ### 17.3 Template feedback tester
 
@@ -1011,7 +911,7 @@ Apakah mau main lagi? Kenapa?
 | Tube camping | Multiple approaches + bounded timer extension | Uji strategi camp dan rescue |
 | Keycard shared vs inventory | Shared team access | Uji disconnect dan pemahaman HUD |
 | Capture langsung vs HP/downed | Direct capture untuk MVP | Uji rasa adil, latency dan range |
-| Ronde 1 lawan 2 berat setelah mutasi pertama | Ronde pendek punya satu zona dan batas 5 menit. Ronde utama tetap mulai dari 4. | Bandingkan escape setelah mutasi pertama pada roster 3 dan 4, beserta alasan pemain memilih rescue atau objective. |
+| Snowball setelah mutasi pertama | Subject Zero punya kecepatan tetap. Mini-Mutant membantu lewat slow. | Bandingkan escape dan keputusan rescue pada roster lima dan enam. |
 | Map terlalu kecil/besar | Ukur travel time pada blockout | Uji chase dan rotasi vent |
 | Killer terlalu lambat saat awal | Base speed 19, sprint Scientist terbatas | Uji durasi chase dan stamina |
 | Camping tetap efektif setelah perubahan layout | Eksperimen timer masuk P1 jika playtest P0 menunjukkan masalah berulang | Uji pemahaman pemain dan kemungkinan memperpanjang infeksi dengan sengaja |
@@ -1035,7 +935,7 @@ Apakah mau main lagi? Kenapa?
 
 ### Sumber konsep
 
-- GDD Escape the Lab dari Fathan Dzaki, pesan WhatsApp 27 November 2026: faksi, objective, Infection Tube, rescue 45/3 detik, Mini-Mutant, Hub & Spoke, 3 zona, ventilasi, Adrenaline Rush, System Lockdown.
+- Penjelasan Fathan Dzaki melalui WhatsApp, 27 November 2026. Contohnya 5–6 pemain, satu anomali, pemain lain mencari kunci untuk keluar, korban bisa ditolong selama timer fleksibel, lalu pindah tim jika gagal diselamatkan. Facility 07, tabung, keycard berwarna, slow mutant dan angka prototipe adalah pengembangan tim.
 - Gambar referensi Central Hub / koridor laboratorium yang disertakan, dengan atribusi tertulis D&M Production. Hak penggunaan aset asli tidak diverifikasi.
 - Pengembangan dalam dokumen ini merupakan proposal desain, bukan kutipan mekanik dari game lain atau hasil playtest.
 
@@ -1052,5 +952,6 @@ Dokumentasi di atas menjadi referensi prinsip teknis dan input/collaboration. De
 
 ---
 
-**End of document — ETL v0.2.**  
-**Langkah berikutnya** adalah review tim dan uji vertical slice satu zona untuk 1–4 pemain.
+**End of document — ETL v0.3.**
+
+**Langkah berikutnya** adalah review tim dan uji vertical slice satu zona untuk latihan 1–2 peserta dan ronde 5–6 pemain.

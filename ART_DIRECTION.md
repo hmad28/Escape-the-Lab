@@ -19,11 +19,11 @@ Bahan dasar charcoal `#101719`, steel `#28363A`, concrete `#667477`, teks HUD `#
 ## Role dan bahasa interaksi
 
 - **Scientist** memakai proporsi avatar standar dengan bentuk jas lab pendek atau jumpsuit dan badge. Fokus keterbacaan ada di tangan saat interaksi, pose sprint dari belakang, dan wajah atau siluet dari luar tabung.
-- **Subject Zero** terbaca dari bahu asimetris, lengan capture dominan, dan harness containment. Pose meraih memperlihatkan momen capture. Aksesori Lockdown pada M2 punya gesture terpisah.
+- **Subject Zero** terbaca dari bahu asimetris, lengan capture dominan, dan harness containment. Pose meraih memperlihatkan momen capture.
 - **Mini-Mutant** bertubuh lebih kecil, condong dan memiliki sisa kostum Scientist. Swipe pendek dan cue slow terlihat berbeda dari capture. Mutasi memakai kabut singkat dan perubahan siluet.
-- **Objek interaktif** memakai bentuk khas dan satu titik fokus. Kartu punya bentuk terpotong, Scanner punya simbol zona, genset punya meter, tabung menampilkan siluet, dan gate punya arah keluar. Tampilkan disabled, aktif, proses dan hasil sesuai prefab.
+- **Objek interaktif** memakai bentuk khas dan satu titik fokus. Kartu punya bentuk terpotong, portal punya simbol zona, tabung menampilkan siluet, dan gate punya arah keluar. Tampilkan disabled, aktif, proses dan hasil sesuai prefab.
 - **UI** memprioritaskan ancaman dekat, action, timer infeksi dan objective aktif. Ikon utama punya teks atau bentuk yang masih jelas saat warna disamarkan. Sisakan area joystick, kamera, serta safe area perangkat.
-- **Audio** melengkapi tanda visual menurut [katalog audio](ASSET_CATALOG.md#8-audio). Genset, tabung, gate, dan Lockdown punya cue yang dapat dibedakan saat ambience aktif.
+- **Audio** melengkapi tanda visual menurut [katalog audio](ASSET_CATALOG.md#8-audio). Kartu, tabung, dan gate punya cue yang dapat dibedakan saat ambience aktif.
 
 ## Review art
 

@@ -6,10 +6,10 @@ Lembar referensi desain untuk seluruh 95 entri [katalog aset](ASSET_CATALOG.md),
 
 | Referensi internal yang dibuat | Aset yang menggunakannya | Isi lembar |
 |---|---|---|
-| Style proof koridor Red | ENV, PROP, OBJ, VFX | Satu frame chase dari mata pemain dan satu frame tenang dari kamera yang sama. Tunjukkan panel, signage, cover, pintu dan meter genset. |
+| Style proof koridor Red | ENV, PROP, OBJ, VFX | Satu frame chase dari mata pemain dan satu frame tenang dari kamera yang sama. Tunjukkan panel, signage, cover, portal zona dan indikator kartu. |
 | Siluet tiga role | CHR, GEAR, ANM, HUD role | Ketiga avatar dalam satu skala, depan/samping/belakang, dan frame capture serta swipe. |
 | Lembar state Infection Tube | OBJ-07, ANM-02/03/08, UI-05, VFX-04/05, AUD-06/07 | Empty → captured → rescue atau mutasi. Beri label cue, area interaksi dan posisi kamera. |
-| Lembar satu/tiga zona | ENV, OBJ, UI-03/04/11 | Satu frame per profil, simbol warna berdampingan, status pintu/genset dan status gate. |
+| Lembar satu/tiga zona | ENV, OBJ, UI-03/04/11 | Satu frame per profil, simbol warna berdampingan, status kartu dan gate. |
 | Lembar readability HP | UI, VFX, cue audio | Frame selama sprint, hold dan chase dengan pengaturan efek normal/rendah. |
 | Referensi Central Hub beratribusi D&M Production di GDD | ENV-02 | Acuan suasana ruangan melingkar dan aksen cahaya. Status izin penggunaan aset sumber belum diverifikasi. |
 
@@ -24,10 +24,10 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 |---|---|---|
 | ENV-01 | Lobby briefing | Ruang aman di luar arena. |
 | ENV-02 | Central Hub | Ruang melingkar ±60 studs. |
-| ENV-03 | Koridor publik dan alcove tabung | Hubungkan lorong Red, Blue dan Green sebelum pintu akses. |
-| ENV-04 | Alcove spawn Scientist | Tempatkan S1–S6 tersebar di area hub yang aman. |
+| ENV-03 | Koridor publik dan alcove tabung | Hubungkan lorong aktif tanpa syarat kartu. |
+| ENV-04 | Alcove spawn Scientist | Tempatkan S1–S5 tersebar di area hub. |
 | ENV-05 | Security annex Subject Zero | Ruang spawn terpisah dengan kisi atau pintu servis dan jalur langsung menuju hub. |
-| ENV-06 | Red Research & Security | Ruang riset, ruang keamanan dan power room Red. |
+| ENV-06 | Red Research & Security | Ruang riset dan keamanan. |
 | ENV-07 | Blue Cryo & Control | Cryo storage dan ruang kontrol dengan mesin pendingin, panel buram, dan aksen biru-persegi. |
 | ENV-08 | Green Containment | Ruang containment dan specimen dengan aksen hijau-lingkaran, pipa overhead, dan jendela observasi. |
 | ENV-09 | Pendekatan evakuasi | Buat dua pendekatan dari sisi berbeda dengan cover yang memutus pandangan. |
@@ -45,14 +45,14 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 |---|---|---|
 | OBJ-01 | Keycard | Kartu polimer dengan sudut terpotong, label R/B/G dan simbol zona yang terbaca dari atas. |
 | OBJ-02 | Keycard spawn marker | Marker editor tanpa visual in-game. |
-| OBJ-03 | Pintu zona dan scanner | Pintu geser baja, lampu status, scanner samping dan logo zona. |
-| OBJ-04 | Genset | Unit ±5 × 3 × 4 studs dengan blok mesin, kabel, panel meter dan titik servis. |
-| OBJ-05 | Gate evakuasi | Shutter baja dengan lampu amber, panah exit dan indikator hubungan genset. |
+| OBJ-03 | Portal zona | Frame baja dan signage R/B/G dengan bukaan awal ±8 × 10 studs. |
+| OBJ-04 | Genset opsional | Unit ±5 × 3 × 4 studs dengan blok mesin, kabel, meter dan titik servis. |
+| OBJ-05 | Gate evakuasi | Shutter baja dengan lampu amber, panah exit dan indikator kartu tim. |
 | OBJ-06 | Escape trigger | Volume editor tanpa visual yang menutup celah gate di sisi aman. |
 | OBJ-07 | Infection Tube | Pod vertikal transparan sebagian, diameter awal ±4 studs, tinggi ±9. |
 | OBJ-08 | Vent entrance dan hatch | Kisi di dinding dengan garis aliran udara dan ikon vent. |
 | OBJ-09 | Penanda spawn arena | Marker editor dengan panah arah dan clearance kamera. |
-| OBJ-10 | Marker latihan | Anchor penunjuk untuk kartu, pintu, tabung, genset dan gate. |
+| OBJ-10 | Marker latihan | Anchor penunjuk untuk kartu, tabung co-op dan gate. |
 
 ## Props dan material
 
@@ -90,7 +90,7 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 | GEAR-01 | Lengan capture Subject Zero | Senjata visual bawaan karakter berupa sarung lengan containment yang rusak, dengan tiga bidang tumpul besar dan garis energi tipis. |
 | GEAR-02 | Tangan mutasi Mini-Mutant | Siluet jari bercabang pendek dengan emissive redup untuk cue slow. |
 | GEAR-03 | Modul System Lockdown | Kontrol pergelangan Subject Zero yang terhubung ke HUD pemilihan zona. |
-| GEAR-04 | Perkakas servis Scientist | Handheld diagnostik atau tool prop pendek untuk pose repair dan rescue. |
+| GEAR-04 | Perkakas servis Scientist | Handheld diagnostik atau tool prop pendek untuk pose rescue. |
 | GEAR-05 | Gadget Scientist fiksi | Beacon umpan suara dan scanner jejak sebagai contoh gadget nonlethal. |
 | GEAR-06 | Varian senjata kosmetik | Varian shell lengan Subject Zero dan pola tangan Mini-Mutant. |
 
@@ -101,7 +101,7 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 | ID | Aset | Arah desain |
 |---|---|---|
 | ANM-01 | Lokomosi Scientist | Pose siap, langkah normal dan sprint panik yang terbaca dari belakang. |
-| ANM-02 | Interaksi Scientist | Pickup dan scan singkat. |
+| ANM-02 | Interaksi Scientist | Pickup singkat dan loop rescue pegang panel selama hold 3 detik. |
 | ANM-03 | Scientist di tabung | Pose tertahan yang muat di kaca, gerakan napas ringan dan pose keluar. |
 | ANM-04 | Lokomosi Subject Zero | Idle bahu berat dan langkah yang terbaca di koridor. |
 | ANM-05 | Capture Subject Zero | Antisipasi lengan, gerak meraih, lalu recovery. |
@@ -110,7 +110,7 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 | ANM-08 | Transformasi | Kabut singkat, pose Scientist berakhir, lalu siluet Mini-Mutant muncul di titik aman. |
 | ANM-09 | System Lockdown | Subject Zero memutar lengan dan memicu panel pergelangan. |
 | ANM-10 | Masuk/keluar vent | Interaksi buka, masuk, lalu keluar menghadap arah yang aman. |
-| ANM-11 | Mekanik prefab | Pintu geser dengan state Lockdown pada M2, gate bergerak selama 5 detik, pod latch buka/tutup, hatch vent. |
+| ANM-11 | Mekanik prefab | Gate bergerak 5 detik, latch pod buka/tutup, dan hatch vent pada M2. |
 | ANM-12 | Role reveal dan emote | Pose singkat Scientist, Subject Zero dan Mini-Mutant untuk role/reward screen. |
 
 ## UI dan identitas
@@ -120,16 +120,16 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 | ID | Aset | Arah desain |
 |---|---|---|
 | UI-01 | Lobby dan status siap | Jumlah pemain siap, toggle Siap, opsi mulai solo/co-op dan persetujuan co-op. |
-| UI-02 | Role reveal dan tutorial | Judul role, tujuan satu kalimat, ikon aksi utama dan langkah berikutnya. |
-| UI-03 | HUD Scientist | Timer ronde, genset aktif, status kartu/pintu, stamina, marker tabung dan status gate. |
-| UI-04 | HUD Subject Zero | Jumlah Scientist aktif, tertangkap, kabur dan bermutasi, timer, indikator capture dan bonus Rush. |
+| UI-02 | Role reveal dan tutorial | Judul role, tujuan, ikon aksi dan langkah berikutnya. |
+| UI-03 | HUD Scientist | Timer, keycard milik tim, stamina, marker tabung dan status gate. |
+| UI-04 | HUD Subject Zero | Jumlah Scientist aktif, captured, kabur dan bermutasi, timer dan indikator capture. |
 | UI-05 | HUD Captured | Countdown infeksi dan tombol ping rescue, dengan location marker yang dibaca teman. |
 | UI-06 | HUD Mini-Mutant | Ikon tim killer, tombol slow dan cooldown. |
 | UI-07 | Prompt interaksi | Label aksi, binding keyboard atau tombol touch, progres hold dan feedback batal. |
-| UI-08 | Kontrol touch | Tombol sprint, interaksi, attack, ping dan skill M2. |
+| UI-08 | Kontrol touch | Tombol sprint, interaksi, attack, ping dan vent M2. |
 | UI-09 | Spectator dan Results | Spectator punya target yang jelas atau pesan menunggu. |
 | UI-10 | Settings dan aksesibilitas | Sediakan pengurangan flashing/shake untuk efek yang dipakai dan kontrol audio saat tersedia. |
-| UI-11 | Icon atlas | Ikon tiga warna/simbol zona, tiga role, kartu, pintu, genset, tabung, rescue ping, stamina, slow, lockdown, vent, gate, waktu dan hasil. |
+| UI-11 | Icon atlas | Ikon tiga warna/simbol zona, tiga role, kartu, tabung, rescue ping, stamina, slow, vent, gate, waktu dan hasil. |
 | UI-12 | Logo dan halaman Roblox | Logo mengikuti panel industrial tanpa kehilangan keterbacaan. |
 | UI-13 | Progression dan shop | P1 mencakup bar XP, badge level dan breakdown results. |
 
@@ -140,12 +140,12 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 | ID | Aset | Arah desain |
 |---|---|---|
 | VFX-01 | Pickup dan objective ping | Outline halus, pulsa pendek saat kartu diambil, marker mengarah ke langkah berikutnya di latihan. |
-| VFX-02 | Genset mati, repair, aktif | Lampu padam, meter berkedip ringan saat repair, indikator tetap menyala dan burst pendek saat aktif. |
+| VFX-02 | Indikator progres keycard | Slot indikator di gate menyala per kartu dengan ikon zona. |
 | VFX-03 | Gate dan evakuasi | Lampu amber, arah panah menyala, debu atau uap pendek saat gate membuka, cue escape yang bersih. |
 | VFX-04 | Capture dan tabung | Aksen swipe, transisi singkat korban, rim light kaca saat terisi dan marker rescue. |
 | VFX-05 | Rescue, mutasi dan proteksi | Pulsa putih saat lepas, kabut dan perubahan siluet saat mutasi, outline perlindungan tiga detik setelah rescue. |
-| VFX-06 | Rush dan slow | Rush berupa pulsa pada harness saat genset aktif. |
-| VFX-07 | Lockdown dan vent | Lockdown memakai segmen tertutup dan countdown pada pintu. |
+| VFX-06 | Efek slow | Garis pendek di lantai atau tepi HUD saat slow aktif. |
+| VFX-07 | Efek vent | Puff udara dan cue masuk/keluar. |
 | VFX-08 | Atmosfer per zona | Red memakai debu ringan, Blue embun lokal, Green kabut tipis di sekitar alat. |
 
 ## Audio dan referensi sinkronisasi
@@ -156,12 +156,12 @@ Gunakan ID katalog sebagai judul. Sertakan tampak atau preview sesuai jenis aset
 |---|---|---|
 | AUD-01 | Ambience fasilitas | Hum listrik, aliran ventilasi dan gema ruang. |
 | AUD-02 | Langkah tiap role | Scientist ringan, Subject Zero berat, Mini-Mutant cepat dan tidak teratur. |
-| AUD-03 | Keycard dan pintu | Pickup lembut, scan diterima/ditolak, motor geser dan hentakan akhir. |
-| AUD-04 | Genset | Klik repair, loop percobaan starter, bunyi menyala satu kali dan loop mesin aktif. |
+| AUD-03 | Pickup keycard | Pickup pendek dengan konfirmasi bahwa kartu masuk progres tim. |
+| AUD-04 | Kartu lengkap | Cue satu kali saat kartu terakhir tercatat. |
 | AUD-05 | Gate | Peringatan buka, motor ±5 detik, bunyi selesai dan konfirmasi escape. |
 | AUD-06 | Capture dan tube | Cue grab, seal pod, ambience pod yang biasa terdengar dekat dan pulse menjelang infeksi. |
 | AUD-07 | Rescue, mutasi dan slow | Release latch, cue mutasi non-gore, swipe mutant dan tanda slow sukses. |
-| AUD-08 | Lockdown dan ventilasi | Alarm pendek, pintu mengunci dan terbuka lagi, gesek hatch, udara selama transit dan bunyi exit. |
+| AUD-08 | Ventilasi | Gesek hatch, udara selama transit dan bunyi exit. |
 | AUD-09 | UI dan hasil | Klik, berhasil/gagal, ping rescue, ronde siap, stinger hasil Scientist/Killer dan hasil latihan. |
 | AUD-10 | Heartbeat dan musik | Dua atau tiga tingkat heartbeat per kedekatan dengan Subject Zero tanpa memberi jarak presisi. |
 

@@ -29,8 +29,8 @@ Baseline melacak 95 entri [Asset Catalog](ASSET_CATALOG.md). Satu baris dapat me
 |---|---|---|---|---|---|
 | OBJ-01 | Keycard | M1/M2 | TBD | Belum mulai | — |
 | OBJ-02 | Keycard spawn marker | M1/M2 | TBD | Belum mulai | — |
-| OBJ-03 | Pintu zona dan scanner | M1/M2 | TBD | Belum mulai | — |
-| OBJ-04 | Genset | M1/M2 | TBD | Belum mulai | — |
+| OBJ-03 | Portal zona | M1/M2 | TBD | Belum mulai | — |
+| OBJ-04 | Genset opsional | P2 | TBD | Kandidat | — |
 | OBJ-05 | Gate evakuasi | M1 | TBD | Belum mulai | — |
 | OBJ-06 | Escape trigger | M1 | TBD | Belum mulai | — |
 | OBJ-07 | Infection Tube | M1/M2 | TBD | Belum mulai | — |
@@ -67,7 +67,7 @@ Baseline melacak 95 entri [Asset Catalog](ASSET_CATALOG.md). Satu baris dapat me
 |---|---|---|---|---|---|
 | GEAR-01 | Lengan capture Subject Zero | M1 | TBD | Belum mulai | — |
 | GEAR-02 | Tangan mutasi Mini-Mutant | M1 | TBD | Belum mulai | — |
-| GEAR-03 | Modul System Lockdown | M2 | TBD | Belum mulai | — |
+| GEAR-03 | Modul System Lockdown | P2 | TBD | Kandidat | — |
 | GEAR-04 | Perkakas servis Scientist | P1 | TBD | Belum mulai | — |
 | GEAR-05 | Gadget Scientist fiksi | P2 | TBD | Kandidat | — |
 | GEAR-06 | Varian senjata kosmetik | P2 | TBD | Kandidat | — |
@@ -84,7 +84,7 @@ Baseline melacak 95 entri [Asset Catalog](ASSET_CATALOG.md). Satu baris dapat me
 | ANM-06 | Lokomosi Mini-Mutant | M1 | TBD | Belum mulai | — |
 | ANM-07 | Slow Mini-Mutant | M1 | TBD | Belum mulai | — |
 | ANM-08 | Transformasi | M1 | TBD | Belum mulai | — |
-| ANM-09 | System Lockdown | M2 | TBD | Belum mulai | — |
+| ANM-09 | System Lockdown | P2 | TBD | Kandidat | — |
 | ANM-10 | Masuk/keluar vent | M2 | TBD | Belum mulai | — |
 | ANM-11 | Mekanik prefab | M1/M2 | TBD | Belum mulai | — |
 | ANM-12 | Role reveal dan emote | P1/P2 | TBD | Belum mulai | — |
@@ -96,7 +96,7 @@ Baseline melacak 95 entri [Asset Catalog](ASSET_CATALOG.md). Satu baris dapat me
 | UI-01 | Lobby dan status siap | M1 | TBD | Belum mulai | — |
 | UI-02 | Role reveal dan tutorial | M1 | TBD | Belum mulai | — |
 | UI-03 | HUD Scientist | M1/M2 | TBD | Belum mulai | — |
-| UI-04 | HUD Subject Zero | M1/M2 | TBD | Belum mulai | — |
+| UI-04 | HUD Subject Zero | M1 | TBD | Belum mulai | — |
 | UI-05 | HUD Captured | M1 | TBD | Belum mulai | — |
 | UI-06 | HUD Mini-Mutant | M1 | TBD | Belum mulai | — |
 | UI-07 | Prompt interaksi | M1/M2 | TBD | Belum mulai | — |
@@ -112,12 +112,12 @@ Baseline melacak 95 entri [Asset Catalog](ASSET_CATALOG.md). Satu baris dapat me
 | ID | Aset | Tahap / cakupan | PIC | Status | Bukti / blocker |
 |---|---|---|---|---|---|
 | VFX-01 | Pickup dan objective ping | M1 | TBD | Belum mulai | — |
-| VFX-02 | Genset mati, repair, aktif | M1 | TBD | Belum mulai | — |
+| VFX-02 | Indikator progres keycard | M1/M2 | TBD | Belum mulai | — |
 | VFX-03 | Gate dan evakuasi | M1 | TBD | Belum mulai | — |
 | VFX-04 | Capture dan tabung | M1 | TBD | Belum mulai | — |
 | VFX-05 | Rescue, mutasi dan proteksi | M1 | TBD | Belum mulai | — |
-| VFX-06 | Rush dan slow | M1 | TBD | Belum mulai | — |
-| VFX-07 | Lockdown dan vent | M2 | TBD | Belum mulai | — |
+| VFX-06 | Efek slow | M1 | TBD | Belum mulai | — |
+| VFX-07 | Efek vent | M2 | TBD | Belum mulai | — |
 | VFX-08 | Atmosfer per zona | P1 | TBD | Belum mulai | — |
 
 ## Audio dan referensi sinkronisasi
@@ -126,12 +126,12 @@ Baseline melacak 95 entri [Asset Catalog](ASSET_CATALOG.md). Satu baris dapat me
 |---|---|---|---|---|---|
 | AUD-01 | Ambience fasilitas | M1/P1 | TBD | Belum mulai | — |
 | AUD-02 | Langkah tiap role | M1 | TBD | Belum mulai | — |
-| AUD-03 | Keycard dan pintu | M1/M2 | TBD | Belum mulai | — |
-| AUD-04 | Genset | M1 | TBD | Belum mulai | — |
+| AUD-03 | Pickup keycard | M1/M2 | TBD | Belum mulai | — |
+| AUD-04 | Kartu lengkap | M1 | TBD | Belum mulai | — |
 | AUD-05 | Gate | M1 | TBD | Belum mulai | — |
 | AUD-06 | Capture dan tube | M1 | TBD | Belum mulai | — |
 | AUD-07 | Rescue, mutasi dan slow | M1 | TBD | Belum mulai | — |
-| AUD-08 | Lockdown dan ventilasi | M2 | TBD | Belum mulai | — |
+| AUD-08 | Ventilasi | M2 | TBD | Belum mulai | — |
 | AUD-09 | UI dan hasil | M1/P1 | TBD | Belum mulai | — |
 | AUD-10 | Heartbeat dan musik | P1 | TBD | Belum mulai | — |
 

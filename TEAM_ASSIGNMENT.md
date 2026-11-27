@@ -11,7 +11,7 @@ Pembagian fungsi untuk tim kecil. Nama PIC diisi saat kickoff setelah akses sert
 | Character / Animation | TBD | Tiga role, rig, locomotion, capture, slow, mutasi | Gameplay memeriksa action timing, Art memeriksa siluet |
 | UI / Client | TBD | Lobby, practice prompts, HUD role, touch, spectator dan results | QA menguji PC dan HP |
 | Art / VFX / Audio | TBD | Style proof Red, signage, material, VFX dan cue gameplay | QA memeriksa readability dan dampak performa |
-| QA / Playtest | TBD | Build matrix, sesi 1–4 pemain, bukti, triage dan retest | Lead memutuskan milestone berdasarkan hasil |
+| QA / Playtest | TBD | Build matrix, latihan 1–2 peserta dan ronde 5–6 pemain, bukti, triage dan retest | Lead memutuskan milestone berdasarkan hasil |
 
 ## Handoff
 
