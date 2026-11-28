@@ -4,6 +4,8 @@ Brief ini bisa langsung dibagikan ke Fathan, Al, dan Fachry. Tujuannya menghasil
 
 ## Urutan pengerjaan
 
+[Buka delapan lembar referensi visual 360°](references/m1/README.md) untuk melihat bentuk aset dari beberapa arah. Pakai ukuran dan pivot dari brief ini saat modeling.
+
 | Orang | Kirim untuk tes impor pertama | Kerjakan setelah Hammad menyetujui contoh |
 |---|---|---|
 | **Fathan Dzaki** | CHR-02 · Subject Zero, satu blockout karakter | CHR-03 · Mini-Mutant |
